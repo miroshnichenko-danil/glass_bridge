@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "my_service/glass_bridge.h"
+#include "glass_bridge/glass_bridge.h"
 #include <cstdlib>
 #include <ctime>
 
@@ -7,7 +7,7 @@ std::string true_path = "";
 std::string your_path = "";
 int steps_count = 0;
 
-bool add(my_service::glass_bridge::Request &req,my_service::glass_bridge::Response &res)
+bool add(glass_bridge::glass_bridge::Request &req,glass_bridge::glass_bridge::Response &res)
 {
   steps_count++;
   your_path += req.input;

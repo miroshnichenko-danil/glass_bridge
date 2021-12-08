@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "my_service/glass_bridge.h"
+#include "glass_bridge/glass_bridge.h"
 #include <iostream>
 
 int main(int argc, char **argv)
@@ -7,8 +7,8 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "glass_bridge_publisher");
 
   ros::NodeHandle n;
-  ros::ServiceClient client=n.serviceClient<my_service::glass_bridge>("glass_bridge");
-  my_service::glass_bridge srv;
+  ros::ServiceClient client=n.serviceClient<glass_bridge::glass_bridge>("glass_bridge");
+  glass_bridge::glass_bridge srv;
 
   while (ros::ok())
   {
