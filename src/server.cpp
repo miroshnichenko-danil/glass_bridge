@@ -12,7 +12,11 @@ bool add(glass_bridge::glass_bridge::Request &req,glass_bridge::glass_bridge::Re
   steps_count++;
   your_path += req.input;
   if (true_path.substr(0, steps_count) != your_path)
+  {
+    ROS_INFO_STREAM("dead");
+    res.output = "dead";
     ros::shutdown();
+  }
 
   else
     res.output = your_path;

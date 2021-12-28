@@ -21,22 +21,18 @@ int main(int argc, char **argv)
       continue;
     }
     srv.request.input = a;
+    if (srv.response.output == "dead")
+    {
+      ROS_INFO_STREAM("dead");
+      ros::shutdown();
+    } 
     if (srv.response.output.length() == 17)
     {
-      std::cout << "Congratulations, you won";
-      return 0;
+      ROS_INFO_STREAM("Congratulations, you won");
+      ros::shutdown();
     }
-    if (client.call(srv))
-    {
-      std::cout << "your path:" << srv.response.output << std::endl;
-      std::cout << "move next" << std::endl;
-    }
-    else
-    {
-      std::cout << "dead" << std::endl;
-      return 0;
-    }
+    std::cout << "your path:" << srv.response.output << std::endl;
+    std::cout << "move next" << std::endl;
   }
-
   return 0;
 }
